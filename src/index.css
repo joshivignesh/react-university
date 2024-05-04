@@ -7,7 +7,104 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
+.code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+nav{
+  background-color: beige;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+nav ul{
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+nav li a, .details-btn a {
+  color: black;
+  text-decoration: none;
+  background-color: rgb(207 232 220 / 20%);
+  text-decoration: none;
+  display: block;
+  padding: 10px;  
+  color: #333;
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+h1{
+  text-align: center;
+  margin: 10px;
+  padding: 1em -1em 0 0;
+  line-height: 2em;
+  text-align: center;
+}
+.search-wrapper{
+  text-align: center;
+}
+.search-input, select{
+  width: 40%;
+  height: 30px;
+  margin-bottom: 10px;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.list-heading{
+  text-align: center;
+  width: 100%;
+  margin: 10px;
+  font-weight: bolder;
+  font-size: 1em;
+  color: rgb(164, 168, 149);
+}
+.university-container{
+  padding: 20px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.university{
+  background-color: beige;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  width: 45%;
+}
+.card-name{
+  color: black;
+  font-size: 28px;
+  font-weight: bolder;
+}
+.details-btn{
+   margin-top: 15px;
+}
+.details-btn button{
+  padding: 5px;
+  background-color: coral;
+  color: white;
+  border-radius: 3px;
+  border-color: coral;
+}
+.uni-info{
+  margin-top: 15px;
+  color: gray;
+}
+ol{
+  color: black;
+  padding: 10px;
+  list-style: none;
+}
+.uni-details{
+  margin-top: 20px;
+}
+.uni-details .university{
+    width: 70%;
+    margin: 10px auto;
 }
