@@ -60,18 +60,8 @@ function UniversityComponent() {
             <div className="wrapper">
                 <h1>Universities</h1>
                
-                <div className="search-wrapper">
-                    <label htmlFor="search-form">
-                        <input
-                            type="search"
-                            name="search-form"
-                            id="search-form"
-                            className="search-input"
-                            placeholder="University search..."
-                            value={q}
-                            onChange={(e) => setQ(e.target.value)}
-                        />                       
-                    </label>
+                <div className="search-wrapper">                   
+                    <SearchBar value={q} onChange={setQ} />
                     <div className="select">
                         <select
                             onChange={(e) => {
