@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
-
+import SearchBar from '../Common/SearchBar';
 
 function UniversityComponent() {
     const [error, setError] = useState(null);
@@ -10,7 +10,14 @@ function UniversityComponent() {
     const [q, setQ] = useState("");
     const [filterParam, setFilterParam] = useState("United Arab Emirates");
 
+    const univInitialValue = () => {
+        return JSON.parse(window.localStorage.getItem("universitystore")) || [];
+    };
+
+    const [alluniversity, setallUniversity] = useState(univInitialValue());
+
     useEffect(() => {
+        if (alluniversity !== undefined || !alluniversity) {
         fetch(
             `http://universities.hipolabs.com/search?country=${filterParam}`
         )
@@ -19,13 +26,15 @@ function UniversityComponent() {
                 (result) => {
                     setIsLoaded(true);
                     setItems(result);
+                    setallUniversity(localStorage.setItem('universitystore', JSON.stringify(result)));                    
                 },
                 (error) => {
                     setIsLoaded(true);
                     setError(error);
-                }
+                }                           
             );
-    }, [filterParam]);
+        }
+    }, [alluniversity, filterParam]);
 
     const data = Object.values(items);
 
@@ -61,10 +70,8 @@ function UniversityComponent() {
                             placeholder="University search..."
                             value={q}
                             onChange={(e) => setQ(e.target.value)}
-                        />
-        
+                        />                       
                     </label>
-
                     <div className="select">
                         <select
                             onChange={(e) => {
@@ -82,10 +89,8 @@ function UniversityComponent() {
                     </div>   
                 </div>
                 <h2 className="list-heading">List of the Universities in {filterParam}</h2>
-
                 <ul className="university-container">
-                    {search(data).map((item, index) => (
-                        
+                    {search(data).map((item, index) => (                        
                         <li key={index} className="university" >
                                     <h2 className="card-name">{item.name}</h2>
                                     <p className="details-btn"><button>

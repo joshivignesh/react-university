@@ -3,8 +3,6 @@ import {useLocation} from "react-router-dom";
 
 function UniversityDetails(){
    const location= useLocation();
-
-
     return(
         <div className="uni-details">
             <div>
