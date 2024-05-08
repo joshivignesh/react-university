@@ -17,7 +17,7 @@ function UniversityComponent() {
     const [alluniversity, setallUniversity] = useState(univInitialValue());
 
     useEffect(() => {
-        if (alluniversity !== undefined || !alluniversity) {
+        if (alluniversity !== undefined || !alluniversity ) {
         fetch(
             `http://universities.hipolabs.com/search?country=${filterParam}`
         )
@@ -33,13 +33,13 @@ function UniversityComponent() {
                     setError(error);
                 }                           
             );
-        }
+         }
     }, [alluniversity, filterParam]);
 
     const data = Object.values(items);
 
     function search(items) {
-        const searchedItems=  items.filter((item) => item.country.toLowerCase == filterParam.toLowerCase);
+        const searchedItems=  items.filter((item) => item.country.toLowerCase === filterParam.toLowerCase);
 
          if(q === ''){
           return searchedItems;
